@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exchange Rates</title>
+</head>
+<body>
+    <h1>Курсы валют на {{ date }}</h1>
+    {% if no_rates %}
+        <p>Нет доступной информации для этой даты.</p>
+    {% else %}
+        <table>
+            <tr>
+                <th>Валюта</th>
+                <th>Цена</th>
+            </tr>
+            {% for rate in rates %}
+            <tr>
+                <td>{{ rate.currency.name }}</td>
+                <td>{{ rate.value }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+</body>
+</html>
